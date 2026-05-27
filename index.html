@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Budgeting App</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script defer src="./app.js"></script>
+</head>
+<body>
+
+  <div class="main-container">
+    <div class="top-section">
+
+      <div class="card">
+        <h2>Budget</h2>
+        <input type="number"
+          placeholder="Enter Total Amount"
+          class="input-box" id="firstInput">
+        <button class="button" onclick="budget()">Set Budget</button>
+      </div>
+
+      <div class="card">
+        <h2>Expenses</h2>
+        <input type="text"
+          placeholder="Enter Title of Product"
+          class="input-box">
+        <input type="number"
+          placeholder="Enter Cost of Product"
+          class="input-box" id="secondInput">
+        <button class="button" onclick="expenses()">Check Amount</button>
+      </div>
+    </div>
+
+    <div class="summary">
+      <div class="summary-box">
+        <h3>Total Budget</h3>
+        <p id="budgetValue"></p>
+      </div>
+      <div class="summary-box">
+        <h3>Expenses</h3>
+        <p id="expensesValue"></p>
+      </div>
+      <div class="summary-box">
+        <h3>Balance</h3>
+        <p>$0</p>
+      </div>
+    </div>
+
+    <div class="expense-card">
+      <h2>Expense List</h2>
+      <div class="expense-item">
+        <div class="expense-info">
+          <span></span>
+          <span></span>
+        </div>
+        <div class="expense-actions">
+          <i class="fa-solid fa-pen-to-square"></i>
+          <i class="fa-solid fa-trash"></i>
+        </div>
+      </div>
+
+      <div class="expense-item">
+        <div class="expense-info">
+          <span></span>
+          <span></span>
+        </div>
+        <div class="expense-actions">
+          <i class="fa-solid fa-pen-to-square"></i>
+          <i class="fa-solid fa-trash"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
