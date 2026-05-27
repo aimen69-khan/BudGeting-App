@@ -1,13 +1,23 @@
 function budget(){
-    var firstInput = document.getElementById('firstInput');
-    var inputValue = firstInput.value;
-    var budgetValue = document.getElementById('budgetValue');
+    let firstInput = document.querySelector('.firstInput');
+    let inputValue = firstInput.value;
+    let budgetValue = document.getElementById('budgetValue');
     budgetValue.textContent = inputValue;
 }
 
 function expenses(){
-    var secondInput = document.getElementById('secondInput');
-    var secondInputValue = secondInput.value;
-    var expensesValue = document.getElementById('expensesValue');
+    let secondInput = document.getElementById('secondInput');
+    let secondInputValue = secondInput.value;
+    let expensesValue = document.getElementById('expensesValue');
     expensesValue.textContent = secondInputValue;
+}
+
+function balance(){
+    budget();
+    expenses();
+
+    let budgetNumber = parseFloat(document.getElementById('budgetValue').textContent);
+    let expensesNumber = parseFloat(document.getElementById('expensesValue').textContent);
+    let balance = document.getElementById('balanceValue');
+    balance.textContent = budgetNumber - expensesNumber;
 }

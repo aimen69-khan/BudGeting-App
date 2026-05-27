@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Budgeting App</title>
+  <link rel="icon" type="image/png" href="./tap-logo.png">
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,20 +20,20 @@
       <div class="card">
         <h2>Budget</h2>
         <input type="number"
-          placeholder="Enter Total Amount"
-          class="input-box" id="firstInput">
+          placeholder="Enter Total Amount...."
+          class="input-box firstInput">
         <button class="button" onclick="budget()">Set Budget</button>
       </div>
 
       <div class="card">
         <h2>Expenses</h2>
         <input type="text"
-          placeholder="Enter Title of Product"
+          placeholder="Enter Title of Product...."
           class="input-box">
         <input type="number"
-          placeholder="Enter Cost of Product"
+          placeholder="Enter Cost of Product...."
           class="input-box" id="secondInput">
-        <button class="button" onclick="expenses()">Check Amount</button>
+        <button class="button" onclick="balance();">Check Amount</button>
       </div>
     </div>
 
@@ -47,7 +48,7 @@
       </div>
       <div class="summary-box">
         <h3>Balance</h3>
-        <p>$0</p>
+        <p id="balanceValue"></p>
       </div>
     </div>
 
@@ -74,7 +75,7 @@
           <i class="fa-solid fa-trash"></i>
         </div>
       </div>
-
+      
     </div>
   </div>
 </body>
