@@ -1,36 +1,33 @@
 function budget(){
     let firstInput = document.querySelector('.firstInput');
-    let inputValue = firstInput.value;
+    let inputValue = firstInput.value.trim();
     let budgetValue = document.getElementById('budgetValue');
     if(inputValue === ''){
-        alert('" NO VALUE FOUND "');
+        alert("No Value Found!");
+        return;
     }else{
-        budgetValue.textContent = inputValue;
+        let currentBudget = parseFloat(budgetValue.textContent) || 0;
+        budgetValue.textContent = currentBudget + parseFloat(inputValue);
+        firstInput.value = '';
+        balance();
     }
 }
 
-function expenses(){
-    let secondInput = document.getElementById('secondInput');
-    let secondInputValue = secondInput.value;
-    let expensesValue = document.querySelector('.expensesValue');
-    expensesValue.textContent = secondInputValue;
-}
-
 function balance(){
-    budget();
-    expenses();
-    let budgetNumber = parseFloat(document.getElementById('budgetValue').textContent);
-    let expensesNumber = parseFloat(document.querySelector('.expensesValue').textContent);
-    let balance = document.getElementById('balanceValue');
-    balance.textContent = budgetNumber - expensesNumber;
+    let budgetNumber = parseFloat(document.getElementById('budgetValue').textContent) || 0;
+    let expensesNumber = parseFloat(document.getElementById('expensesValue').textContent) || 0;
+    let balanceDisplay = document.getElementById('balanceValue');
+    balanceDisplay.textContent = budgetNumber - expensesNumber;
 }
 
 function titleProduct(){
     let title = document.getElementById('inputTitle');
     let inputTitle = title.value.trim();
     let secondInput = document.getElementById('secondInput');
-    let secondInputValue = secondInput.value;
-    let titleOfProduct = document.getElementById('productName');
+    let secondInputValue = secondInput.value.trim();
+    let expensesValue = document.getElementById('expensesValue');
+    let expenseCard = document.querySelector('.expense-card');
+
     if(inputTitle === '' || secondInputValue === ''){
         alert("Enter A Value!");
         return;
@@ -38,18 +35,24 @@ function titleProduct(){
         alert("Value is a Number!");
         return;
     }else{
-      titleOfProduct.textContent = inputTitle;
-      secondExp.textContent = secondInputValue;
-      expenseItem.classList.remove('hidden');
-}
-}
+        let newItem = document.createElement('div');
+        newItem.classList.add('expense-item');
+        newItem.innerHTML = `
+            <div class="expense-info">
+                <span>${inputTitle}</span>
+                <span>$${secondInputValue}</span>
+            </div>
+            <div class="expense-actions">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-trash"></i>
+            </div>
+        `;
+        expenseCard.appendChild(newItem);
+        let currentExpenses = parseFloat(expensesValue.textContent) || 0;
+        expensesValue.textContent = currentExpenses + parseFloat(secondInputValue);
+        title.value = '';
+        secondInput.value = '';
 
-
-function secondExpeses(){
-    expenses();
-    let secondExpesesCost = document.querySelector('.expValue');
-    let secondExpesesCostValue = secondExpesesCost.value;
-    let secondExpesesShows = document.getElementById('secondExp');
-    secondExpesesShows.textContent = secondExpesesCostValue;
+        balance();
+    }
 }
-
