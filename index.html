@@ -29,11 +29,11 @@
         <h2>Expenses</h2>
         <input type="text"
           placeholder="Enter Title of Product...."
-          class="input-box">
+          class="input-box" id="inputTitle">
         <input type="number"
           placeholder="Enter Cost of Product...."
-          class="input-box" id="secondInput">
-        <button class="button" onclick="balance();">Check Amount</button>
+          class="input-box expValue" id="secondInput">
+        <button class="button" onclick="balance(); titleProduct(); secondExpeses();">Check Amount</button>
       </div>
     </div>
 
@@ -44,7 +44,7 @@
       </div>
       <div class="summary-box">
         <h3>Expenses</h3>
-        <p id="expensesValue"></p>
+        <p class="expensesValue"></p>
       </div>
       <div class="summary-box">
         <h3>Balance</h3>
@@ -54,29 +54,19 @@
 
     <div class="expense-card">
       <h2>Expense List</h2>
+       <div class="expense-item hidden" id="expenseItem">
       <div class="expense-item">
         <div class="expense-info">
-          <span></span>
-          <span></span>
+          <span id="productName"></span>
+          <span id="secondExp"></span> 
         </div>
         <div class="expense-actions">
           <i class="fa-solid fa-pen-to-square"></i>
           <i class="fa-solid fa-trash"></i>
-        </div>
+       </div>
       </div>
-
-      <div class="expense-item">
-        <div class="expense-info">
-          <span></span>
-          <span></span>
-        </div>
-        <div class="expense-actions">
-          <i class="fa-solid fa-pen-to-square"></i>
-          <i class="fa-solid fa-trash"></i>
-        </div>
-      </div>
-      
+     </div>
     </div>
-  </div>
+   </div>
 </body>
 </html>

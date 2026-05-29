@@ -119,6 +119,10 @@
       margin-bottom: 15px;
     }
 
+    .expense-item.hidden{
+     display: none;
+    }
+
     .expense-info{
       display: flex;
       align-items: center;
@@ -156,7 +160,6 @@
         align-items: flex-start;
         gap: 15px;
       }
-
       .expense-info{
         gap: 40px;
       }
