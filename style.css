@@ -13,6 +13,7 @@
       justify-content: center;
     }
 
+
     .main-container{
       width: 100%;
       max-width: 760px;
@@ -52,28 +53,28 @@
     }
 
     .input-box:focus{
-      border-color: #5b7cfa;
+      border-color: lightseagreen;
     }
 
     .button{
       border: none;
-      background: #5b7cfa;
+      background: lightseagreen;
       color: white;
       padding: 12px 22px;
       border-radius: 5px;
       font-size: 16px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: 0.4s;
       margin: 15px 0 0 0;
     }
 
     .button:hover{
-      background: #4d6ef0;
+      background: #109d91;
     }
 
 
     .summary{
-      background: #5b7cfa;
+      background: lightseagreen;
       border-radius: 8px;
       padding: 30px;
       display: flex;
@@ -95,7 +96,6 @@
       font-weight: 500;
     }
 
-
     .expense-card{
       background: white;
       padding: 25px;
@@ -114,7 +114,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 15px 0;
-      border-left: 5px solid #5b7cfa;
+      border-left: 5px solid #5b7c;
       padding-left: 15px;
       margin-bottom: 15px;
     }
@@ -138,16 +138,17 @@
     }
 
     .expense-actions i{
-      color: #5b7cfa;
+      color: #5b7c;
       font-size: 22px;
       cursor: pointer;
       transition: 0.3s;
-      margin: 0 0 0 25px;
+      margin: 0 0 0 20px;
     }
 
     .expense-actions i:hover{
-      transform: scale(1.1);
+      transform: scale(1.2);
     }
+
 
 
     @media(max-width: 768px){

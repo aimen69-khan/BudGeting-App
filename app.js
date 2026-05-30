@@ -13,6 +13,7 @@ function budget(){
     }
 }
 
+
 function balance(){
     let budgetNumber = parseFloat(document.getElementById('budgetValue').textContent) || 0;
     let expensesNumber = parseFloat(document.getElementById('expensesValue').textContent) || 0;
@@ -20,7 +21,8 @@ function balance(){
     balanceDisplay.textContent = budgetNumber - expensesNumber;
 }
 
-function titleProduct(){
+
+function expense(){
     let title = document.getElementById('inputTitle');
     let inputTitle = title.value.trim();
     let secondInput = document.getElementById('secondInput');
@@ -29,30 +31,44 @@ function titleProduct(){
     let expenseCard = document.querySelector('.expense-card');
 
     if(inputTitle === '' || secondInputValue === ''){
-        alert("Enter A Value!");
+        alert("NO value Found!");
         return;
     }else if(!isNaN(inputTitle)){
         alert("Value is a Number!");
         return;
     }else{
+        let itemId = Date.now();
         let newItem = document.createElement('div');
         newItem.classList.add('expense-item');
+        newItem.id = itemId;
         newItem.innerHTML = `
             <div class="expense-info">
                 <span>${inputTitle}</span>
-                <span>$${secondInputValue}</span>
+                <span>${secondInputValue}</span>
             </div>
             <div class="expense-actions">
                 <i class="fa-solid fa-pen-to-square"></i>
                 <i class="fa-solid fa-trash"></i>
             </div>
         `;
+
+        newItem.querySelector('.fa-trash').addEventListener('click', function(){
+            deleteFunc(itemId, parseFloat(secondInputValue));
+        });
         expenseCard.appendChild(newItem);
         let currentExpenses = parseFloat(expensesValue.textContent) || 0;
         expensesValue.textContent = currentExpenses + parseFloat(secondInputValue);
         title.value = '';
         secondInput.value = '';
-
         balance();
     }
+}
+
+
+function deleteFunc(removeId, cost){
+    document.getElementById(removeId).remove();
+    let expensesValue = document.getElementById('expensesValue');
+    let currentExpenses = parseFloat(expensesValue.textContent) || 0;
+    expensesValue.textContent = currentExpenses - cost;
+    balance();
 }

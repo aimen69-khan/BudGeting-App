@@ -13,6 +13,7 @@
   <script defer src="./app.js"></script>
 </head>
 <body>
+
   <div class="main-container">
     <div class="top-section">
 
@@ -32,9 +33,8 @@
         <input type="number"
           placeholder="Enter Cost of Product...."
           class="input-box" id="secondInput">
-        <button class="button" onclick="titleProduct()">Check Amount</button>
+        <button class="button" onclick="expense()">Check Amount</button>
       </div>
-
     </div>
 
     <div class="summary">
@@ -53,19 +53,8 @@
     </div>
 
     <div class="expense-card">
-      <h2>Expense List</h2>
-      <div class="expense-item hidden" id="expenseItem">
-        <div class="expense-info">
-          <span id="productName"></span>
-          <span id="secondExp"></span>
-        </div>
-        <div class="expense-actions">
-          <i class="fa-solid fa-pen-to-square"></i>
-          <i class="fa-solid fa-trash"></i>
-        </div>
-      </div>
-    </div>
-
+  <h2>Expense List</h2>
   </div>
+ </div>
 </body>
 </html>
