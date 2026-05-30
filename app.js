@@ -4,12 +4,12 @@ function budget(){
     let budgetValue = document.getElementById('budgetValue');
     if(inputValue === ''){
         alert("No Value Found!");
-        return;
+         return;
     }else{
         let currentBudget = parseFloat(budgetValue.textContent) || 0;
-        budgetValue.textContent = currentBudget + parseFloat(inputValue);
-        firstInput.value = '';
-        balance();
+         budgetValue.textContent = currentBudget + parseFloat(inputValue);
+          firstInput.value = '';
+           balance();
     }
 }
 
@@ -55,6 +55,9 @@ function expense(){
         newItem.querySelector('.fa-trash').addEventListener('click', function(){
             deleteFunc(itemId, parseFloat(secondInputValue));
         });
+        newItem.querySelector('.fa-pen-to-square').addEventListener('click', function(){
+            editFunc(itemId, inputTitle, secondInputValue);
+        });
         expenseCard.appendChild(newItem);
         let currentExpenses = parseFloat(expensesValue.textContent) || 0;
         expensesValue.textContent = currentExpenses + parseFloat(secondInputValue);
@@ -71,4 +74,12 @@ function deleteFunc(removeId, cost){
     let currentExpenses = parseFloat(expensesValue.textContent) || 0;
     expensesValue.textContent = currentExpenses - cost;
     balance();
+}
+
+
+function editFunc(removeId, currentTitle, currentCost){
+     document.getElementById(removeId);
+     document.getElementById('inputTitle').value = currentTitle;
+     document.getElementById('secondInput').value = currentCost;
+     deleteFunc(removeId, parseFloat(currentCost));
 }
